@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <div class="mb-3">
+              <h3>Gold Making Charge Calculator</h3>
+          </div>
+          <form accept="" class="shadow p-4">                  
+              <div class="mb-3">
+                  <label for="username">Total Purchase Value</label>
+                  <input type="text" class="form-control" name="username" id="username" [(ngModel)]="purchaseValue">
+              </div>
+
+              <div class="mb-3">
+                  <label for="Password">Current Gold Rate</label>
+                  <input type="text" class="form-control" name="text" id="Password" [(ngModel)]="goldMarketRate">
+              </div>
+
+              <div class="mb-3">
+                <label for="gram">Total Gram</label>
+                <input type="text" class="form-control" name="text" id="gram" [(ngModel)]="totalGram">
+            </div>
+
+              <div class="mb-3">
+                  <button type="submit" class="btn btn-primary" (click)="calculateRate()">Calculate</button>
+              </div>
+
+              <hr>
+
+              <p *ngIf="makingCharge" class="text-center mb-0">Making Charge: {{makingCharge}}</p>
+              <p *ngIf="percentage  " class="text-center mb-0">Percentage: {{percentage}}</p>
+              
+          </form>
+      </div>
+  </div>
+</div>
