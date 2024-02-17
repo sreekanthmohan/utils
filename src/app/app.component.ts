@@ -17,15 +17,20 @@ export class AppComponent {
   makingCharge:any;
   totalGram:any;
   percentage:any;
+  gst: any;
+  goldRate: any;
+  totalValue: any;
   constructor() {
   }
 
   calculateRate(){
+    this.gst = parseFloat(((0.03) * this.purchaseValue).toFixed(2));
+    this.goldRate = parseFloat((this.goldMarketRate * this.totalGram).toFixed(2));
+    this.makingCharge = parseFloat((this.purchaseValue - this.goldRate).toFixed(2));
+    this.percentage = parseFloat((((this.makingCharge * 100) / this.purchaseValue)).toFixed(2));
+    this.totalValue = (this.gst + this.goldRate + this.makingCharge).toFixed(2);
 
-    this.makingCharge = ((this.purchaseValue - ( ((3/100) * this.purchaseValue) ) ) - (this.goldMarketRate * this.totalGram)).toFixed(2);
-    this.percentage = (((this.makingCharge * 100) / this.purchaseValue)).toFixed(2);
-
-    console.log('purchaseValue', this.purchaseValue, this.goldMarketRate);
+    // console.log('purchaseValue', this.purchaseValue, this.goldMarketRate);
     
   }
 

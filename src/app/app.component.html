@@ -6,7 +6,7 @@
           </div>
           <form accept="" class="shadow p-4">                  
               <div class="mb-3">
-                  <label for="username">Total Purchase Value</label>
+                  <label for="username">Purchase Value without gst</label>
                   <input type="text" class="form-control" name="username" id="username" [(ngModel)]="purchaseValue">
               </div>
 
@@ -26,8 +26,10 @@
 
               <hr>
 
-              <p *ngIf="makingCharge" class="text-center mb-0">Making Charge: {{makingCharge}}</p>
-              <p *ngIf="percentage  " class="text-center mb-0">Percentage: {{percentage}}</p>
+              <p *ngIf="gst" class="text-center mb-0">GST: {{gst}}</p>
+              <p *ngIf="goldRate" class="text-center mb-0">Total Gold Rate: {{goldRate}}</p>
+              <p *ngIf="makingCharge" class="text-center mb-0">Making Charge: {{makingCharge}} ({{percentage}}%)</p>
+              <p *ngIf="totalValue" class="text-center mb-0">Total Value: {{totalValue}}</p>
               
           </form>
       </div>
